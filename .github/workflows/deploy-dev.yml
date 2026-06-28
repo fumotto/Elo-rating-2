@@ -33,11 +33,6 @@ jobs:
 
       - name: Build frontend
         run: npm run build
-        env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL_DEV }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY_DEV }}
-          VITE_APP_ENV: development
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/dev/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
