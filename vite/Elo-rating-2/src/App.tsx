@@ -3,6 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { AuthProvider } from './contexts/AuthContext';
+import { AdminPage } from './pages/AdminPage';
+import { HistoryPage } from './pages/HistoryPage';
+import { HomePage } from './pages/HomePage';
+import { MatchRegisterPage } from './pages/MatchRegisterPage';
+import { RankingPage } from './pages/RankingPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -115,6 +123,20 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+      <AuthProvider>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="ranking" element={<RankingPage />} />
+              <Route path="history" element={<HistoryPage />} />
+              <Route path="matches/register" element={<MatchRegisterPage />} />
+              <Route path="admin" element={<AdminPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   )
 }
