@@ -36,7 +36,12 @@ export function HomePage() {
         <ul>
           <li>ランキング表示: 全員</li>
           <li>戦績履歴表示: 全員</li>
-          <li>戦績登録: {canRegisterMatches(profile?.role ?? 'guest_user') ? '利用可' : 'ログイン後（選手/管理者）'}</li>
+          <li>
+            戦績登録:{' '}
+            {canRegisterMatches(profile?.role ?? 'guest_user')
+              ? '利用可'
+              : 'ログイン後（選手/管理者）'}
+          </li>
           <li>選手管理・ロールバック・ランクリセット: 管理者のみ</li>
         </ul>
       </PageSection>

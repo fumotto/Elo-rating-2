@@ -1,17 +1,9 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react';
+import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { fetchCurrentProfile, signInWithDiscord, signOut } from '../lib/api';
 import { supabase } from '../lib/supabase';
 import type { UserProfile } from '../types';
 
-interface AuthContextValue {
+export interface AuthContextValue {
   profile: UserProfile | null;
   loading: boolean;
   signIn: () => Promise<void>;
@@ -37,15 +29,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let mounted = true;
-
     const init = async () => {
       setLoading(true);
       await refreshProfile();
-      if (mounted) {
-        setLoading(false);
-      }
+      if (mounted) setLoading(false);
     };
-
     void init();
 
     const {
@@ -74,10 +62,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-export function useAuth(): AuthContextValue {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
-}
+export default AuthContext;

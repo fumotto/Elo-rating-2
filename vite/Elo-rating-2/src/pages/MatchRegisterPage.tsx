@@ -2,11 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { PageSection } from '../components/PageSection';
 import { useAuth } from '../contexts/AuthContext';
-import {
-  fetchAppSettings,
-  fetchPlayers,
-  registerMatch,
-} from '../lib/api';
+import { fetchAppSettings, fetchPlayers, registerMatch } from '../lib/api';
 import type { OcrMatchJson, Player } from '../types';
 
 const OCR_PROMPT = `この『ARMORED CORE VI』の対戦結果画面のスクリーンショットを分析してください。
@@ -30,7 +26,9 @@ function findPlayerIdByName(players: Player[], name: string): string | null {
   if (exact) {
     return exact.id;
   }
-  return players.find((p) => p.name.includes(normalized) || normalized.includes(p.name))?.id ?? null;
+  return (
+    players.find((p) => p.name.includes(normalized) || normalized.includes(p.name))?.id ?? null
+  );
 }
 
 export function MatchRegisterPage() {
@@ -75,11 +73,7 @@ export function MatchRegisterPage() {
     [players],
   );
 
-  const updateSlot = (
-    team: 'winner' | 'loser',
-    index: number,
-    value: string,
-  ) => {
+  const updateSlot = (team: 'winner' | 'loser', index: number, value: string) => {
     if (team === 'winner') {
       setWinnerIds((prev) => prev.map((id, i) => (i === index ? value : id)));
     } else {
@@ -216,7 +210,9 @@ export function MatchRegisterPage() {
               <input
                 type="datetime-local"
                 value={playedAt ? playedAt.slice(0, 16) : ''}
-                onChange={(e) => setPlayedAt(e.target.value ? new Date(e.target.value).toISOString() : '')}
+                onChange={(e) =>
+                  setPlayedAt(e.target.value ? new Date(e.target.value).toISOString() : '')
+                }
               />
             </label>
             <div className="full-width">

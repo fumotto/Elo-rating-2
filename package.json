@@ -10,12 +10,14 @@
     "lint": "npm run lint",
     "db:push": "supabase db push",
     "db:reset": "supabase db reset",
+    "editorconfig":"editorconfig ./",
     "render:diagrams": "mkdir -p docs/diagrams/generated && for f in docs/diagrams/*.mmd; do n=$(basename \"$f\" .mmd); mmdc -i \"$f\" -o \"docs/diagrams/generated/${n}.svg\"; done"
   },
   "engines": {
     "node": ">=24"
   },
   "dependencies": {
+    "editorconfig": "^3.0.2",
     "mmdc": "^0.0.1",
     "supabase": "^2.108.0",
     "vite": "^8.1.0"

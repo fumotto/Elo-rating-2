@@ -94,10 +94,7 @@ export async function createPlayer(name: string, initialRate: number): Promise<v
 }
 
 export async function renamePlayer(playerId: string, name: string): Promise<void> {
-  const { error } = await supabase
-    .from('players')
-    .update({ name: name.trim() })
-    .eq('id', playerId);
+  const { error } = await supabase.from('players').update({ name: name.trim() }).eq('id', playerId);
 
   if (error) {
     throw error;

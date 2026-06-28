@@ -77,8 +77,8 @@ export function AdminPage() {
     <div className="stack">
       <PageSection title="Supabase / サーバー">
         <p>
-          本番・開発環境の Supabase プロジェクトは GitHub Actions と環境変数で切り替えます。
-          初回は Supabase CLI で `supabase db push` を実行してマイグレーションを適用してください。
+          本番・開発環境の Supabase プロジェクトは GitHub Actions と環境変数で切り替えます。 初回は
+          Supabase CLI で `supabase db push` を実行してマイグレーションを適用してください。
         </p>
       </PageSection>
 
@@ -103,10 +103,7 @@ export function AdminPage() {
           <button
             type="button"
             onClick={() =>
-              void runAction(
-                () => updateKFactor(kFactor, kEditable),
-                'K 係数を更新しました',
-              )
+              void runAction(() => updateKFactor(kFactor, kEditable), 'K 係数を更新しました')
             }
           >
             K 係数を保存
@@ -191,12 +188,7 @@ export function AdminPage() {
         <div className="inline-form">
           <button
             type="button"
-            onClick={() =>
-              void runAction(
-                rollbackLastMatch,
-                '最新の戦績をロールバックしました',
-              )
-            }
+            onClick={() => void runAction(rollbackLastMatch, '最新の戦績をロールバックしました')}
           >
             最新戦績をロールバック
           </button>
@@ -204,7 +196,9 @@ export function AdminPage() {
             type="button"
             className="danger"
             onClick={() => {
-              if (window.confirm('全選手のレートを初期値に戻し、戦績を全削除します。よろしいですか？')) {
+              if (
+                window.confirm('全選手のレートを初期値に戻し、戦績を全削除します。よろしいですか？')
+              ) {
                 void runAction(resetRankings, 'ランキングをリセットしました');
               }
             }}
