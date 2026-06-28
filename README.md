@@ -5,10 +5,10 @@
 ## 構成
 
 ```
-Elo_rating/
-├── frontend/          # Vite + React フロントエンド
-├── supabase/          # DB マイグレーション・シード・設定
-└── .github/workflows/ # CI / デプロイ / Supabase マイグレーション
+Elo-rating-2/
+├── vite/              # Vite + React フロントエンド
+├── supabase-project/  # Supabase マイグレーション・RPC・設定
+└── docs/              # プロジェクトドキュメント
 ```
 
 ## 主な機能
@@ -17,9 +17,9 @@ Elo_rating/
 | --- | --- |
 | `guest_user` | ランキング表示、戦績履歴表示 |
 | `normal_user` | 上記 + 戦績登録 |
-| `admin_user` | 上記 + 選手登録/改名、ロールバック、ランクリセット、K 係数、ユーザロール管理 |
+| `admin_user` | 上記 + 選手登録/編集、ロール管理、戦績ロールバック、ランクリセット、K 係数設定 |
 
-Elo 計算は旧版と同様、3 人の平均レートから期待勝率を求め、同一チーム全員に同じ増減値を適用します。
+Elo 計算は 3 人チームの平均レートから期待勝率を求め、同一チーム全員に同一のレート変動を適用します。
 
 ## ブランチ運用
 
@@ -28,13 +28,15 @@ Elo 計算は旧版と同様、3 人の平均レートから期待勝率を求�
 | `dev` | 開発環境。マージで開発用 GitHub Pages / Supabase にデプロイ |
 | `release` | 本番環境。マージで本番 GitHub Pages / Supabase にデプロイ |
 
-- Pull Request 作成時: `ci.yml` で lint / test / build
-- `dev` への push: 開発 Pages (`/リポジトリ名/dev/`) + Supabase dev マイグレーション
-- `release` への push: 本番 Pages (`/リポジトリ名/`) + Supabase prod マイグレーション
+- Pull Request 作成時: CI で lint / test / build を実行
+- `dev` への push: GitHub Pages 開発ブランチ + Supabase 開発プロジェクトへデプロイ
+- `release` への push: GitHub Pages 本番 + Supabase 本番プロジェクトへデプロイ
 
 ## セットアップ
 
-### 1. 依存関係
+### 1. Node / 依存関係
+
+- 推奨 Node バージョン: `24` (プロジェクトルートに `.nvmrc` を追加しています)
 
 ```bash
 npm install
@@ -51,13 +53,12 @@ npm install
 
 ### 3. ローカル環境変数
 
-`frontend/.env.local` を作成:
+`vite/.env.local` を作成し、以下を設定します:
 
 ```env
 VITE_SUPABASE_URL=https://xxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key
 VITE_APP_ENV=development
-VITE_BASE_PATH=/
 ```
 
 ### 4. DB マイグレーション
@@ -110,7 +111,7 @@ Settings > Pages > Build and deployment > Source: **GitHub Actions**
 
 ### Environments
 
-`development` / `production` 環境を作成し、上記 Secrets をそれぞれ設定してください。
+`development` / `production` 環境を作成し、上記 Secrets を設定してください。
 
 ## コマンド
 
@@ -118,11 +119,11 @@ Settings > Pages > Build and deployment > Source: **GitHub Actions**
 npm run dev      # フロント開発
 npm run build    # フロントビルド
 npm run test     # Vitest
-npm run lint     # ESLint
+npm run lint     # Oxfmt/Oxlint
 npm run db:push  # Supabase マイグレーション適用
 ```
 
 ## 参考
 
 - 原版: https://github.com/fumotto/Elo-rating
-- OCR JSON 連携、K 係数、履歴ロールバックなど旧版の概念を Supabase RPC に移植しています
+- この実装では OCR JSON 連携、SteamID/PSN ID、K 係数、戦績ロールバック、ロール管理を Supabase RPC へ移植しています

@@ -90,7 +90,11 @@ BEGIN
   INSERT INTO public.user_profiles (id, discord_id, display_name, role)
   VALUES (
     NEW.id,
-    COALESCE(NEW.raw_user_meta_data ->> 'provider_id', NEW.raw_user_meta_data ->> 'sub'),
+    COALESCE(
+      NEW.raw_user_meta_data ->> 'provider_user_id',
+      NEW.raw_user_meta_data ->> 'provider_id',
+      NEW.raw_user_meta_data ->> 'sub'
+    ),
     COALESCE(NEW.raw_user_meta_data ->> 'full_name', NEW.raw_user_meta_data ->> 'name', NEW.email),
     'guest_user'
   );

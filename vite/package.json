@@ -1,0 +1,35 @@
+{
+  "name": "elo-rating-2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "format:check": "oxfmt --check",
+    "format": "oxfmt"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react-router-dom": "^5.3.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.69.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.0",
+    "vitest": "^1.0.0"
+  }
+}

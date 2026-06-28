@@ -1,0 +1,19 @@
+```mermaid
+graph TD
+  A[Frontend: Vite + React] -->|Browser Router| B[Pages: Home/Ranking/History/Register/Admin]
+  B --> C[Auth Layer]
+  C -->|Supabase Auth| D[Supabase Backend]
+  D --> E[Auth.users + user_profiles]
+  D --> F[players]
+  D --> G[match_records + match_participants]
+  D --> H[app_settings]
+  E --> I[Role-based access: admin_user / normal_user / guest_user]
+  F --> J[Player metadata: name, steam_id, psn_id, rating]
+  G --> K[3v3 match registration & rollback]
+  H --> L[K factor configuration]
+  C --> M[Discord OAuth login]
+  B --> N[Role-gated UI]
+  N -->|admin_user| O[Admin dashboard]
+  N -->|normal_user| P[Match register]
+  N -->|guest_user| Q[Ranking / history view only]
+```

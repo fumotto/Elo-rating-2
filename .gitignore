@@ -9,5 +9,4 @@ coverage/
 .vite/
 supabase/.branches/
 supabase/.temp/
-.continue/
 .agents/

@@ -1,0 +1,85 @@
+.celebration-root {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.celebration-burst {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  width: 260px;
+  height: 260px;
+  margin-left: -130px;
+  margin-top: -130px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 30%, rgba(255,255,255,0) 60%);
+  filter: blur(12px);
+  transform: scale(0.3);
+  animation: burstScale 700ms ease-out forwards;
+  mix-blend-mode: screen;
+}
+
+@keyframes burstScale {
+  to { transform: scale(1); opacity: 0; }
+}
+
+.celebration-piece {
+  position: absolute;
+  top: 12%;
+  border-radius: 2px;
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, opacity, top;
+  animation-name: confettiFall;
+  animation-timing-function: cubic-bezier(.2,.8,.3,1);
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+    top: 20%;
+  }
+  20% {
+    transform: translateY(120px) rotate(180deg) scale(1.1);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(360px) rotate(420deg) scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(680px) rotate(720deg) scale(0.8);
+    opacity: 0;
+    top: 100%;
+  }
+}
+
+.celebration-text {
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ffd100, #ff3b30, #ff5e99, #6b5cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textPop 600ms ease-out forwards;
+}
+
+@keyframes textPop {
+  0% { transform: translateX(-50%) scale(0.6); opacity: 0 }
+  60% { transform: translateX(-50%) scale(1.05); opacity: 1 }
+  100% { transform: translateX(-50%) scale(1); opacity: 1 }
+}
