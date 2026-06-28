@@ -1,12 +1,11 @@
 name: Supabase Migrations
 
 on:
-  push:
+  pull_request_target:
     branches:
-      # - dev
-      - release
+      - main
     paths:
-      - 'supabase/**'
+      - 'supabase-project/migrations/**'
   workflow_dispatch:
 
 permissions:

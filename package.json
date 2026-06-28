@@ -1,21 +1,19 @@
 {
-  "name": "elo-rating",
+  "name": "elo-rating-2",
   "private": true,
   "version": "1.0.0",
   "description": "3v3 team match Elo rating manager with Supabase backend",
-  "workspaces": [
-    "frontend"
-  ],
+
   "scripts": {
-    "dev": "npm run dev --workspace=frontend",
-    "build": "npm run build --workspace=frontend",
-    "test": "npm run test --workspace=frontend",
-    "lint": "npm run lint --workspace=frontend",
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "test": "npm run test",
+    "lint": "npm run lint",
     "db:push": "supabase db push",
     "db:reset": "supabase db reset"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "dependencies": {
     "vite": "^8.1.0"
