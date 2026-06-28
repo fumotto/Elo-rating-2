@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  auth:
+    image: supabase/auth:latest
+    ports:
+      - "80:80"
+  postgres:
+    image: supabase/postgres:latest
+    ports:
+      - "5432:5432"
