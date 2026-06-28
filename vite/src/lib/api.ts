@@ -31,6 +31,7 @@ export async function fetchCurrentProfile(): Promise<UserProfile | null> {
       { retries: 3, initialDelayMs: 300 },
     );
   } catch (e) {
+    console.warn('Failed to fetch user profile:', e);
     return null;
   }
 }
