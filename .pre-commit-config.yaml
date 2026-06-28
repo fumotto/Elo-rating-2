@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: mermaid-validate
+        name: Validate Mermaid diagrams
+        entry: bash -c 'for f in "$@"; do mmdc -i "$f" -o /tmp/out.svg --quiet || exit 1; done'
+        language: system
+        files: \.mmd$

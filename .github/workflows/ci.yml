@@ -30,6 +30,9 @@ jobs:
 
       - name: Test
         run: npm run test
+      
+      - name: Render diagrams
+        run: npm run render:diagrams
 
       - name: Build
         run: npm run build
