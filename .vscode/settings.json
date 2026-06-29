@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "file:///c%3A/Users/%E5%A5%88%E8%89%AF%E6%A2%A8%20%E8%9C%A5%E8%9C%B4/.vscode/extensions/continue.continue-2.0.0-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml",
+            "vscode-local:/c%3A/Users/%E5%A5%88%E8%89%AF%E6%A2%A8%20%E8%9C%A5%E8%9C%B4/.continue/config.yaml"
+        ]
+    }
+}
