@@ -1,4 +1,5 @@
 ---
+alwaysApply: false
 description: Databaseに関するRule
 ---
 

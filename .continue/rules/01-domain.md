@@ -1,4 +1,7 @@
 ---
+name: Domain
+
+alwaysApply: false
 description: このプロジェクトに関する知識
 ---
 
@@ -13,21 +16,22 @@ https://github.com/fumotto/Elo-rating
 バックエンドとしてはsupabaseを利用して
 ・ログイン認証（Discordアカウントでのログイン）
 ・ログインユーザのロール割り当て
-  - Admin_user
-    * supabaseサーバーの起動
-    * 選手の登録・名前変更
-    * 戦績の登録・ロールバック
-    * ランキング表示
-    * 戦績履歴表示
-    * ランクリセット
-  - Nomal_user（選手）
-    * 戦績の登録
-    * ランキング表示
-    * 戦績履歴表示
-  - Guest_user
-    * ランキング表示
-    * 戦績履歴表示
-・登録内容はRDBで管理
+
+- Admin_user
+  - supabaseサーバーの起動
+  - 選手の登録・名前変更
+  - 戦績の登録・ロールバック
+  - ランキング表示
+  - 戦績履歴表示
+  - ランクリセット
+- Nomal_user（選手）
+  - 戦績の登録
+  - ランキング表示
+  - 戦績履歴表示
+- Guest_user
+  _ ランキング表示
+  _ 戦績履歴表示
+  ・登録内容はRDBで管理
 
 Discordアカウントとログインユーザは1対1で紐づきます。
 ログインユーザはSteamIDかPlaystationIDのいずれか片方を必ず持ち、一意です。どちらのIDかは区別がつくようにしたい。

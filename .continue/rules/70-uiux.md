@@ -1,4 +1,12 @@
 ---
+name: UIUX
+
+globs:
+  - "**/*.tsx"
+  - "**/*.css"
+
+alwaysApply: false
+
 description: UI/UXに関するRule
 ---
 
