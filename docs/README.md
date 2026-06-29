@@ -16,4 +16,9 @@
 
 ## ドキュメント
 - アーキテクチャ図：`docs/architecture.mmd`
+- 取り扱い説明書
+  - ゲストユーザー: `docs/manuals/guest-user-manual.md`
+  - 選手ユーザー: `docs/manuals/player-user-manual.md`
+  - 管理者ユーザー: `docs/manuals/admin-user-manual.md`
+- Playwright E2E テストケース一覧: `docs/specs/playwright-e2e-test-cases.md`
 - 本プロジェクトの詳細：このファイル
