@@ -31,13 +31,13 @@ jobs:
         run: npm run lint
 
       - name: Test frontend
-        run: cd vite && npm run test
+        run: npm run test
 
       - name: Setup supabase services
-        run: cd supabase-project && bash setup.sh
+        run: cd supabase && bash setup.sh
 
       - name: Run supabase tests
-        run: cd supabase-project/tests && bash test-self-hosted.sh
+        run: cd supabase/tests && bash test-self-hosted.sh
 
       - name: Render diagrams
         run: npm run render:diagrams

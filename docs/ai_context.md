@@ -43,7 +43,7 @@ Supabase バックエンドと Discord OAuth 認証を備えた 3 対 3 チー�
 
 # ディレクトリ構成
 - `vite/`: フロントエンドコード（Vite + React）
-- `supabase-project/`: Supabase マイグレーション、RPC、設定
+- `supabase/`: Supabase マイグレーション、RPC、設定
 - `docs/`: プロジェクトドキュメントとアーキテクチャ図
 
 # 主要 API / RPC

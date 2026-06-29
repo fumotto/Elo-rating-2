@@ -16,7 +16,7 @@ info:
     Frontend-to-backend request catalogue for the Supabase-backed Elo Rating Manager.
     The operations below reflect the requests issued by the Vite frontend client.
 servers:
-  - url: https://<supabase-project>.supabase.co
+  - url: https://<supabase>.supabase.co
     description: Supabase project endpoint
 tags:
   - name: Auth

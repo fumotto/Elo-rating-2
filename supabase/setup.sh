@@ -23,7 +23,7 @@
 
 set -e
 
-PROJECT_DIR="supabase-project"
+PROJECT_DIR="supabase"
 SKIP_DEPS=0
 WITH_AWS=0
 ASSUME_YES=0
@@ -33,7 +33,7 @@ print_help() {
 Usage: setup.sh [options]
 
 Options:
-  -p, --project-dir <name>  Name of the project directory (default: supabase-project)
+  -p, --project-dir <name>  Name of the project directory (default: supabase)
       --skip-deps           Skip installation of system packages
       --with-aws            Install the AWS CLI v2
   -y, --yes                 Non-interactive: accept defaults, no prompts

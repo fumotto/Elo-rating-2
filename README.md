@@ -7,7 +7,7 @@
 ```
 Elo-rating-2/
 ├── vite/              # Vite + React フロントエンド
-├── supabase-project/  # Supabase マイグレーション・RPC・設定
+├── supabase/  # Supabase マイグレーション・RPC・設定
 └── docs/              # プロジェクトドキュメント
 ```
 

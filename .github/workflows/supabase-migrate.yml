@@ -3,9 +3,9 @@ name: Supabase Migrations
 on:
   pull_request_target:
     branches:
-      - main
+      - release
     paths:
-      - 'supabase-project/migrations/**'
+      - 'supabase/migrations/**'
   workflow_dispatch:
 
 permissions:
