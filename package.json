@@ -11,7 +11,8 @@
     "db:push": "supabase db push",
     "db:reset": "supabase db reset",
     "editorconfig":"editorconfig ./",
-    "render:diagrams": "mkdir -p docs/diagrams/generated && for f in docs/diagrams/*.mmd; do n=$(basename \"$f\" .mmd); mmdc -i \"$f\" -o \"docs/diagrams/generated/${n}.svg\"; done"
+    "render:docs": "node scripts/generate-api-docs.mjs",
+    "render:diagrams": "node scripts/render-diagrams.mjs"
   },
   "engines": {
     "node": ">=24"

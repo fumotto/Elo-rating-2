@@ -24,13 +24,21 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+      - name: Install vite dependencies
+        run: cd vite && npm ci
 
       - name: Lint
         run: npm run lint
 
-      - name: Test
-        run: npm run test
-      
+      - name: Test frontend
+        run: cd vite && npm run test
+
+      - name: Setup supabase services
+        run: cd supabase-project && bash setup.sh
+
+      - name: Run supabase tests
+        run: cd supabase-project/tests && bash test-self-hosted.sh
+
       - name: Render diagrams
         run: npm run render:diagrams
 

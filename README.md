@@ -57,9 +57,20 @@ npm install
 
 ```env
 VITE_SUPABASE_URL=https://xxxx.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
 VITE_APP_ENV=development
 ```
+
+Supabase のセルフホスト / スタック設定では、以下の環境変数も用意します:
+
+```env
+SUPABASE_URL=https://xxxx.supabase.co
+SUPABASE_PUBLISHABLE_KEY=your-publishable-key
+SUPABASE_SECRET_KEY=your-secret-key
+SUPABASE_JWKS_URL=https://xxxx.supabase.co/auth/v1/.well-known/jwks.json
+```
+
+> 旧来の `VITE_SUPABASE_ANON_KEY` も一部互換性のため読み込まれますが、最新構成では `VITE_SUPABASE_PUBLISHABLE_KEY` を使用するのが基本です。
 
 ### 4. DB マイグレーション
 
@@ -92,9 +103,13 @@ npm run dev
 | Secret | 用途 |
 | --- | --- |
 | `VITE_SUPABASE_URL_DEV` | 開発 Supabase URL |
-| `VITE_SUPABASE_ANON_KEY_DEV` | 開発 anon key |
+| `VITE_SUPABASE_PUBLISHABLE_KEY_DEV` | 開発 publishable key |
 | `VITE_SUPABASE_URL_PROD` | 本番 Supabase URL |
-| `VITE_SUPABASE_ANON_KEY_PROD` | 本番 anon key |
+| `VITE_SUPABASE_PUBLISHABLE_KEY_PROD` | 本番 publishable key |
+| `SUPABASE_SECRET_KEY_DEV` | 開発 Supabase secret key |
+| `SUPABASE_SECRET_KEY_PROD` | 本番 Supabase secret key |
+| `SUPABASE_JWKS_URL_DEV` | 開発 JWKS URL |
+| `SUPABASE_JWKS_URL_PROD` | 本番 JWKS URL |
 | `SUPABASE_ACCESS_TOKEN` | Supabase CLI 用 |
 | `SUPABASE_DB_PASSWORD` | DB push 用 |
 
