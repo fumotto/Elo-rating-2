@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "3v3 team match Elo rating manager with Supabase backend",
   "scripts": {
-    "dev": "npm run dev",
-    "build": "npm run build",
+    "dev": "cd ./vite && npm run dev",
+    "build": "test -f .env && cp -f .env ./vite/.env && cd ./vite && npm run build",
     "test": "cd ./vite && npm run test",
     "lint": "cd ./vite && npm run lint",
     "db:push": "supabase db push",
