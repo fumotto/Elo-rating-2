@@ -2,6 +2,9 @@
 
 [fumotto/Elo-rating](https://github.com/fumotto/Elo-rating) をベースに、Supabase バックエンドと Discord 認証を備えた 3 対 3 チーム戦マッチ管理 Web アプリです。
 
+※***このプロジェクトはメンテされません。アーカイブ行きです***
+
+
 ## 構成
 
 ```
